@@ -7,34 +7,31 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
-	
-		
-	WebDriver driver =null;
+
+	WebDriver driver = null;
 
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
-
-	@FindBy(linkText="Organizations")
+	@FindBy(linkText = "Organizations")
 	private WebElement orgLink;
-	
-	@FindBy(linkText="Contacts")
+
+	@FindBy(linkText = "Contacts")
 	private WebElement contactLink;
-	
-	@FindBy(linkText="Campaigns")
+
+	@FindBy(linkText = "Campaigns")
 	private WebElement campaignLink;
 
-	
-	@FindBy(linkText="More")
+	@FindBy(linkText = "More")
 	private WebElement moreLink;
-	
-	@FindBy(xpath="img[@src='themes/softed/images/user.PNG']")
+
+	@FindBy(xpath = "img[@src='themes/softed/images/user.PNG']")
 	private WebElement adminimg;
-	
-	@FindBy(xpath="//a[text()='Sign Out']")
+
+	@FindBy(xpath = "//a[text()='Sign Out']")
 	private WebElement Signoutlink;
-	
+
 	public WebElement getAdminimg() {
 		return adminimg;
 	}
@@ -50,32 +47,27 @@ public class HomePage {
 	public WebElement getContactLink() {
 		return contactLink;
 	}
-	
- 
+
 	public WebElement getMoreLink() {
 		return moreLink;
 	}
-	
-	public void navigateToCampaignPage()
-	{
-		Actions act=new Actions(driver);
+
+	public void navigateToCampaignPage() {
+		Actions act = new Actions(driver);
 		act.moveToElement(moreLink).perform();
 		campaignLink.click();
 	}
-	
-	public void logout()
-	{
-		
-		Actions act=new Actions(driver);
+
+	public void logout() {
+
+		Actions act = new Actions(driver);
 		act.moveToElement(adminimg).perform();
 		act.moveToElement(Signoutlink).perform();
-		//Signoutlink.click();
+		// Signoutlink.click();
 	}
 
 	public WebElement getSignoutlink() {
 		return Signoutlink;
 	}
-	
-	
 
 }
